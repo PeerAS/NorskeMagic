@@ -29,14 +29,20 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="453*"/>
+                <RowDefinition Height="154*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="65*"/>
-                <ColumnDefinition Width="163*"/>
+                <ColumnDefinition Width="98*"/>
+                <ColumnDefinition Width="65*"/>
             </Grid.ColumnDefinitions>
-            <PasswordBox HorizontalAlignment="Left" Margin="0,141,0,0" VerticalAlignment="Top" Grid.Column="1" Height="72" Width="282"/>
-            <TextBlock Name="Username" HorizontalAlignment="Left" Margin="27,159,0,0" TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.Username, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Height="27" Width="93"/>
-            <TextBlock HorizontalAlignment="Left" Margin="27,382,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="27" Width="93"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="0,357,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="282" Grid.Column="1"/>
+            <TextBox x:Name="userNameBox" HorizontalAlignment="Left" Margin="0,141,0,0" VerticalAlignment="Top" Grid.Column="1" Height="72" Width="282" Grid.ColumnSpan="2"/>
+            <TextBlock Name="usernameBlock" HorizontalAlignment="Left" Margin="27,159,0,0" TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.Username, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Height="27" Width="93"/>
+            <TextBlock Name="passwordBlock" HorizontalAlignment="Left" Margin="27,382,0,0" TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.Password, Source={StaticResource LocalizedStrings}}"  VerticalAlignment="Top" Height="27" Width="93"/>
+            <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="72" Margin="0,357,0,0" VerticalAlignment="Top" Width="282" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Button Content="{Binding Path=LocalizedResources.LoginButton, Source={StaticResource LocalizedStrings}}" Grid.Column="1" HorizontalAlignment="Left" Margin="40,29,0,0" VerticalAlignment="Top" Grid.Row="1" Height="72" Width="120" Click="Button_Click"/>
 
         </Grid>
     </Grid>

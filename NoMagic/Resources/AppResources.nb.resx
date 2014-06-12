@@ -137,4 +137,7 @@
   <data name="Username" xml:space="preserve">
     <value>Brukernavn</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Passord</value>
+  </data>
 </root>

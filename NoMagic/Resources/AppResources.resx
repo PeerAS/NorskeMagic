@@ -134,7 +134,13 @@
   <data name="AppBarMenuItemText" xml:space="preserve">
     <value>Menu Item</value>
   </data>
-  <data name="Username" xml:space="preserve">
+  <data name="usernameBlock" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value />
+  </data>
+  <data name="passwordBlock" xml:space="preserve">
+    <value>Password</value>
   </data>
 </root>
