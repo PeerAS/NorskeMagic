@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -13,7 +15,7 @@ namespace NoMagic
 {
     public partial class Page1 : PhoneApplicationPage
     {
-        HttpClient loginClient;
+        HttpWebRequest loginClient;
         string userNameInput;
         string passWordInput;
         Uri address;
@@ -21,8 +23,6 @@ namespace NoMagic
         public Page1()
         {
             InitializeComponent();
-            loginClient = new HttpClient();
-            address = new Uri("http://www.norskemagic.com/login.php");
             
         }
         
@@ -38,18 +38,24 @@ namespace NoMagic
             }
             else
             {
-                string loginParameters = "loginusername=" + userNameInput + "&password=" + passWordInput;
-                postLogin(address, loginParameters);
+                address = new Uri("http://www.norskemagic.com/login.php");
+                loginClient = (HttpWebRequest)WebRequest.Create(address);
+                loginClient.ContentType = "application/x-www-form-urlencoded";
+                loginClient.Method = "POST";
+
+                string postData = "loginusername=" + userNameInput + "&password=" + passWordInput;
+                byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+                loginClient.ContentLength = byteArray.Length;
+
+                //Stream dataStream = loginClient.GetRequestStreamAsync();
+                
+
             }
 
         }
-        
-        private async void postLogin(Uri addressIn, string parametersIn)
-        {
-            var respons = await loginClient.PostAsync(address, new HttpStringContent(parametersIn));
-            MessageBox.Show(respons.Content.ToString());
-        }
 
+
+        
            
             
         
